@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-$_SESSION['prev']
 include('../../includes/database.php');
 $dbConnection = getDatabaseConnection('shopping_cart');
 
@@ -93,7 +92,7 @@ function getProductList(){
 
 =======
         <h1> Order Foods </h1>
-       
+
 >>>>>>> upstream/master
        <form>
             <strong> Product Type: </strong>
@@ -123,11 +122,11 @@ function getProductList(){
 
 =======
               <input type="text" name="maxPrice" size = 15 />
-              
+
               <br/>
               <br />
               <input type = "checkbox" name = "healthyChoice"> <strong> Healthy Choice </strong>
-              
+
 >>>>>>> upstream/master
               <br />
               <br />
@@ -152,11 +151,11 @@ function getProductList(){
               <table class = " table" border=1>
 
 =======
-        
+
         <div id = "wrapper">
-            
+
               <table class = "table" border=1>
-              
+
 >>>>>>> upstream/master
               <tr>
                   <th> Product Name </th>
@@ -190,9 +189,9 @@ function getProductList(){
 =======
               <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
         </div>
-        
+
         <div style = "float:center"></div>
-            
+
 >>>>>>> upstream/master
         </div>
     </body>

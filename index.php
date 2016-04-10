@@ -88,8 +88,13 @@ function getProductList(){
     </head>
 
     <body>
+<<<<<<< HEAD
         <h5> Let's Shop ! </h5>
 
+=======
+        <h1> Order Foods </h1>
+       
+>>>>>>> upstream/master
        <form>
             <strong> Product Type: </strong>
             <select name = "productType">
@@ -109,33 +114,50 @@ function getProductList(){
               <br />
 
               <strong> Maximum Price: </strong>
+<<<<<<< HEAD
               <input type="text" name="maxPrice" size = 5/>
 
               <br/>
               <br />
               <input type = "checkbox" name = "healthyChoice"> <strong> Click to see all foods of Healthy Choice </strong>
 
+=======
+              <input type="text" name="maxPrice" size = 15 />
+              
+              <br/>
+              <br />
+              <input type = "checkbox" name = "healthyChoice"> <strong> Healthy Choice </strong>
+              
+>>>>>>> upstream/master
               <br />
               <br />
-              <strong> Order results by: </strong>
+              <strong> Filter by: </strong>
               <input type = "radio" name = "orderBy" value = " productName"> Product Name
               <input type = "radio" name = "orderBy" value = " price"> Price
 
               <br />
-               <strong> In: </strong>
+               <strong> Sort: </strong>
                <input type = "radio" name = "order" value = " ASC"> Ascending Order
                <input type = "radio" name = "order" value = " DESC"> Descending Order
 
               <br />
               <br />
-              <input type = "submit" value = "Search Products" name = "searchForm">
-              <input type = "reset" value = "reset" name = "reset">
+              <input type = "submit" value = "Search" name = "searchForm" class = "SRbutton">
+              <input type = "reset" value = "Reset" name = "reset" class = "SRbutton">
         </form>
+<<<<<<< HEAD
 
         <div style = "float:left">
 
               <table class = " table" border=1>
 
+=======
+        
+        <div id = "wrapper">
+            
+              <table class = "table" border=1>
+              
+>>>>>>> upstream/master
               <tr>
                   <th> Product Name </th>
                   <th> Price </th>
@@ -157,6 +179,7 @@ function getProductList(){
               ?>
 
               </table>
+<<<<<<< HEAD
 
         </div>
 
@@ -164,6 +187,13 @@ function getProductList(){
 
             <iframe name = "producsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
 
+=======
+              <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
+        </div>
+        
+        <div style = "float:center"></div>
+            
+>>>>>>> upstream/master
         </div>
     </body>
 </html>

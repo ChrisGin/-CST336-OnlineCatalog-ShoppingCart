@@ -98,7 +98,7 @@ function getProductList(){
               <br />
               <br />
               <strong> Order results by: </strong>
-              <input type = "radio" name = "orderby" value = " name"> Product Name
+              <input type = "radio" name = "orderBy" value = " productName"> Product Name
               <input type = "radio" name = "orderBy" value = " price"> Price
               
               <br />

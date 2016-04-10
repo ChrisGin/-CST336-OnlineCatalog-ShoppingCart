@@ -8,8 +8,8 @@ function getProductInfo() {
    
    $sql = "SELECT productDescription 
            FROM products
-           WHERE product_id = :productId";
-   $namedParameters = array(":productId"=>$_GET['productId']);
+           WHERE product_id = :product_id";
+   $namedParameters = array(":product_id"=>$_GET['product_id']);
    $statement =  $dbConnection->prepare($sql);
    $statement->execute($namedParameters);
    return $statement->fetch(PDO::FETCH_ASSOC);

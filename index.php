@@ -24,15 +24,15 @@ function getProductList(){
     if(isset($_GET['searchForm'])){
          
         if(!empty($_GET['productType'])){
-            $sql .= " AND productTypeId = :productTypeId";
-            $namedParameters[":productTypeId"] = $_GET['productType'];
+            $sql .= " AND productTypeId = :productType_id";
+            $namedParameters[":productType_id"] = $_GET['productType'];
             
         }
         if(!empty($_GET['maxPrice'])){
             $sql .= " AND price <= :maxPrice";
             $namedParameters["maxPrice"] = $_GET['maxPrice'];
         }
-        if(isset($_GET['healthyChoice'])){
+        if(isset($_GET['healthy'])){
             $sql .= " AND healthy = 1";
         }
         if(isset($_GET['orderBy'])){
@@ -44,12 +44,13 @@ function getProductList(){
         
     }
     else{
+        
         $sql = "SELECT product_id, productName, price, calories FROM products ORDER BY price";
         
     }
     
     print_r($sql);
-    echo "<br/><br/><br/><br/>";
+    //echo "<br/><br/><br/><br/>";
 
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
@@ -79,7 +80,7 @@ function getProductList(){
                    
                         $productTypes = getProductTypes();
                         foreach ($productTypes as $productType) {
-                            echo "<option value='".$productType['productTypeId']."'>" . $productType['productType'] . " </option>";  
+                            echo "<option value='" . $productType['productType_id'] . " '>" . $productType['productType'] . " </option>";  
                         }
                         
                     ?>
@@ -93,18 +94,18 @@ function getProductList(){
               
               <br/>
               <br />
-              <input type = "checkbox" name = "healthyChoice"> <strong> Click to see all foods of Healthy Choice </strong>
+              <input type = "checkbox" name = "healthy"> <strong> Click to see all foods of Healthy Choice </strong>
               
               <br />
               <br />
               <strong> Order results by: </strong>
-              <input type = "radio" name = "orderBy" value = " productName"> Product Name
-              <input type = "radio" name = "orderBy" value = " price"> Price
+              <input type = "radio" name = "orderby" value = "productName"> Product Name
+              <input type = "radio" name = "orderBy" value = "price"> Price
               
               <br />
                <strong> In: </strong>
-               <input type = "radio" name = "order" value = " ASC"> Ascending Order
-               <input type = "radio" name = "order" value = " DESC"> Descending Order
+               <input type = "radio" name = "order" value = "ASC"> Ascending Order
+               <input type = "radio" name = "order" value = "DESC"> Descending Order
                 
               <br />
               <br />

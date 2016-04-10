@@ -127,7 +127,7 @@ function getProductList(){
                $productList = getProductList();
                foreach($productList as $productItem) {
                    echo "<tr>";
-                   echo "<td><a href='getProductInfo.php?productId=".$productItem['productId']."' target= 'producsInfoiframe'> " . $productItem['productName'] . "</a></td>";
+                   echo "<td><a href='getProductsInfo.php?product_id=".$productItem['product_id']."' target= 'productsInfoiframe'> " . $productItem['productName'] . "</a></td>";
                    echo "<td>" . $productItem['price'] . "</td>";
                    echo "<td>" . $productItem['calories'] . "</td>";
                    echo "</tr>";
@@ -136,11 +136,13 @@ function getProductList(){
               ?>
               
               </table>
-              <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
-        </div>
+              
+                  <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
+            </div>
         
-        <div style = "float:center"></div>
+                <div style = "float:left"></div>
             
-        </div>
+             </div>
+             
     </body>
 </html>

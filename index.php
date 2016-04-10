@@ -68,6 +68,7 @@ function getProductList(){
     }
 
 
+
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -106,14 +107,14 @@ function getProductList(){
               <br />
 
               <strong> Maximum Price: </strong>
-              
+
 
               <input type="text" name="maxPrice" size = 15 />
 
               <br/>
               <br />
               <input type = "checkbox" name = "healthyChoice"> <strong> Healthy Choice </strong>
-              
+
               <br />
               <br />
               <strong> Filter by: </strong>
@@ -156,12 +157,12 @@ function getProductList(){
               ?>
 
               </table>
-              
+
                   <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
             </div>
-        
+
                 <div style = "float:left"></div>
-            
+
              </div>
 
     </body>

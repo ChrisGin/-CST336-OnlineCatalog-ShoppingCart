@@ -66,15 +66,6 @@ function getProductList(){
         $sql = "SELECT product_id, productName, price, calories FROM products ORDER BY price";
 
     }
-<<<<<<< HEAD
-    
-    //print_r($sql);
-    //echo "<br/><br/><br/><br/>";
-=======
-
-    print_r($sql);
-    echo "<br/><br/><br/><br/>";
->>>>>>> 02a16d6722d45bc9f050beee0db45faf8d6e7cd6
 
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);

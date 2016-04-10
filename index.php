@@ -48,8 +48,8 @@ function getProductList(){
         
     }
     
-    print_r($sql);
-    echo "<br/><br/><br/><br/>";
+    //print_r($sql);
+    //echo "<br/><br/><br/><br/>";
 
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);

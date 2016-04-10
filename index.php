@@ -67,8 +67,11 @@ function getProductList(){
 
     }
 
+<<<<<<< HEAD
     //print_r($sql);
     //echo "<br/><br/><br/><br/>";
+=======
+>>>>>>> upstream/master
 
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
@@ -87,7 +90,11 @@ function getProductList(){
     </head>
 
     <body>
+<<<<<<< HEAD
         <h5> Let's Shop ! </h5>
+=======
+        <h1> Order Foods </h1>
+>>>>>>> upstream/master
 
        <form>
             <strong> Product Type: </strong>
@@ -108,12 +115,21 @@ function getProductList(){
               <br />
 
               <strong> Maximum Price: </strong>
+<<<<<<< HEAD
+=======
+              
+
+>>>>>>> upstream/master
               <input type="text" name="maxPrice" size = 15 />
 
               <br/>
               <br />
               <input type = "checkbox" name = "healthyChoice"> <strong> Healthy Choice </strong>
+<<<<<<< HEAD
 
+=======
+              
+>>>>>>> upstream/master
               <br />
               <br />
               <strong> Filter by: </strong>
@@ -146,7 +162,11 @@ function getProductList(){
                $productList = getProductList();
                foreach($productList as $productItem) {
                    echo "<tr>";
+<<<<<<< HEAD
                    echo "<td><a href='getProductsInfo.php?product_id=".$productItem['product_id']."' target= 'productsInfoiframe'> " . $productItem['productName'] . "</a></td>";
+=======
+                   echo "<td><a href='getProductsInfo.php?productId=".$productItem['productId']."' target= 'producsInfoiframe'> " . $productItem['productName'] . "</a></td>";
+>>>>>>> upstream/master
                    echo "<td>" . $productItem['price'] . "</td>";
                    echo "<td>" . $productItem['calories'] . "</td>";
                    echo "<td><a href=" . "index.php?action=add&id=$productItem[product_id]>Add to Cart</a></td>";
@@ -156,11 +176,22 @@ function getProductList(){
               ?>
 
               </table>
+<<<<<<< HEAD
               <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
         </div>
 
         <div style = "float:center"></div>
 
         </div>
+=======
+              
+                  <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
+            </div>
+        
+                <div style = "float:left"></div>
+            
+             </div>
+
+>>>>>>> upstream/master
     </body>
 </html>

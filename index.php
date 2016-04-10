@@ -24,7 +24,7 @@ function getProductList(){
     if(isset($_GET['searchForm'])){
          
         if(!empty($_GET['productType'])){
-            $sql .= " AND productType_id = :productTypeId";
+            $sql .= " AND productTypeId = :productTypeId";
             $namedParameters[":productTypeId"] = $_GET['productType'];
             
         }
@@ -39,7 +39,7 @@ function getProductList(){
             $sql .= " ORDER BY " . $_GET['orderBy'];
         }
         if(isset($_GET['order'])){
-            $sql .= "ORDER BY " . $_GET['orderBy'] . $_GET['order'];
+            $sql .= $_GET['order'];
         }
         
     }
@@ -47,6 +47,9 @@ function getProductList(){
         $sql = "SELECT product_id, productName, price, calories FROM products ORDER BY price";
         
     }
+    
+    print_r($sql);
+    echo "<br/><br/><br/><br/>";
 
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
@@ -95,13 +98,13 @@ function getProductList(){
               <br />
               <br />
               <strong> Order results by: </strong>
-              <input type = "radio" name = "orderby" value = "name"> Product Name
-              <input type = "radio" name = "orderBy" value = "price" checked> Price
+              <input type = "radio" name = "orderby" value = " name"> Product Name
+              <input type = "radio" name = "orderBy" value = " price"> Price
               
               <br />
                <strong> In: </strong>
-               <input type = "radio" name = "order" value = "ASC"> Ascending Order
-               <input type = "radio" name = "order" value = "DESC"> Descending Order
+               <input type = "radio" name = "order" value = " ASC"> Ascending Order
+               <input type = "radio" name = "order" value = " DESC"> Descending Order
                 
               <br />
               <br />

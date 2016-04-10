@@ -13,6 +13,47 @@ function getProductTypes() {
     return $records;
 }
 
+function getProductList(){
+    
+    global $dbConnection;
+     
+        $sql = "SELECT product_id, productName, price, calories FROM products WHERE 1";
+    
+    $namedParameters = array();
+
+    if(isset($_GET['searchForm'])){
+         
+        if(!empty($_GET['productType'])){
+            $sql .= " AND productType_id = :productTypeId";
+            $namedParameters[":productTypeId"] = $_GET['productType'];
+            
+        }
+        if(!empty($_GET['maxPrice'])){
+            $sql .= " AND price <= :maxPrice";
+            $namedParameters["maxPrice"] = $_GET['maxPrice'];
+        }
+        if(isset($_GET['healthyChoice'])){
+            $sql .= " AND healthyChoice = 1";
+        }
+        if(isset($_GET['orderBy'])){
+            $sql .= " ORDER BY " . $_GET['orderBy'];
+        }
+        if(isset($_GET['order'])){
+            $sql .= "ORDER BY " . $_GET['orderBy'] . $_GET['order'];
+        }
+        
+    }
+    else{
+        $sql = "SELECT product_id, productName, price, calories FROM products ORDER BY price";
+        
+    }
+
+    $statement = $dbConnection->prepare($sql);
+    $statement -> execute($namedParameters);
+    $records = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $records;
+}
+
 ?>
 
 
@@ -27,32 +68,45 @@ function getProductTypes() {
         <h5> Let's Shop ! </h5>
        
        <form>
-            Product Type:
-            <select name="productType">
+            <strong> Product Type: </strong>
+            <select name = "productType">
                 
-                    <option value=""> All </option>
+                    <option value = ""> All </option>
                    <?php
-                    $productTypes = getProductTypes();
-                    foreach ($productTypes as $productType) {
-                        echo "<option value='".$productType['productTypeId']."'>" . $productType['productType'] . " </option>";  
-                    }
-                     ?>
+                   
+                        $productTypes = getProductTypes();
+                        foreach ($productTypes as $productType) {
+                            echo "<option value='".$productType['productTypeId']."'>" . $productType['productType'] . " </option>";  
+                        }
+                        
+                    ?>
+            </select>
               
               <br />
+              <br />
               
-              Maximum Price:
+              <strong> Maximum Price: </strong>
               <input type="text" name="maxPrice" size = 5/>
               
+              <br/>
               <br />
-              <input type = "checkbox" name = "healthyChoice"> Healthy Choice
+              <input type = "checkbox" name = "healthyChoice"> <strong> Click to see all foods of Healthy Choice </strong>
               
               <br />
-              Order results by:
-              <input type = "radio" name = "orderby" value = "name"> Product Name/
+              <br />
+              <strong> Order results by: </strong>
+              <input type = "radio" name = "orderby" value = "name"> Product Name
               <input type = "radio" name = "orderBy" value = "price" checked> Price
               
               <br />
+               <strong> In: </strong>
+               <input type = "radio" name = "order" value = "asc"> Ascending Order
+               <input type = "radio" name = "order" value = "desc"> Descending Order
+                
+              <br />
+              <br />
               <input type = "submit" value = "Search Products" name = "searchForm">
+              <input type = "reset" value = "reset" name = "reset">
         </form>
     </body>
 </html>

@@ -33,7 +33,7 @@ function getProductList(){
             $namedParameters["maxPrice"] = $_GET['maxPrice'];
         }
         if(isset($_GET['healthyChoice'])){
-            $sql .= " AND healthyChoice = 1";
+            $sql .= " AND healthy = 1";
         }
         if(isset($_GET['orderBy'])){
             $sql .= " ORDER BY " . $_GET['orderBy'];
@@ -100,13 +100,46 @@ function getProductList(){
               
               <br />
                <strong> In: </strong>
-               <input type = "radio" name = "order" value = "asc"> Ascending Order
-               <input type = "radio" name = "order" value = "desc"> Descending Order
+               <input type = "radio" name = "order" value = "ASC"> Ascending Order
+               <input type = "radio" name = "order" value = "DESC"> Descending Order
                 
               <br />
               <br />
               <input type = "submit" value = "Search Products" name = "searchForm">
               <input type = "reset" value = "reset" name = "reset">
         </form>
+        
+        <div style = "float:left">
+            
+              <table class = " table" border=1>
+              
+              <tr>
+                  <th> Product Name </th>
+                  <th> Price </th>
+                  <th> Calories </th>
+              </tr>
+              
+              <?php
+              
+               $productList = getProductList();
+               foreach($productList as $productItem) {
+                   echo "<tr>";
+                   echo "<td><a href='getProductInfo.php?productId=".$productItem['productId']."' target= 'producsInfoiframe'> " . $productItem['productName'] . "</a></td>";
+                   echo "<td>" . $productItem['price'] . "</td>";
+                   echo "<td>" . $productItem['calories'] . "</td>";
+                   echo "</tr>";
+               }
+              
+              ?>
+              
+              </table>
+              
+        </div>
+        
+        <div style = "float:left"></div>
+            
+            <iframe name = "producsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>    
+            
+        </div>
     </body>
 </html>

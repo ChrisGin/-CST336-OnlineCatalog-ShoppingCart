@@ -1,5 +1,3 @@
-//Make a new databse and copy and paste into the SQL section.
-
 CREATE TABLE customers (
 customer_id int(8) NOT NULL,
 customer_name varchar(50),

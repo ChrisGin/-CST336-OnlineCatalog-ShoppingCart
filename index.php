@@ -134,7 +134,7 @@ function getProductList(){
 
         <div class = "wrapper">
 
-              <table class = "table" border=1>
+              <table>
 
               <tr>
                   <th> Product Name </th>
@@ -160,14 +160,13 @@ function getProductList(){
 
               </table>
 
-                  
             </div>
 
-            <div style = "float:right">
+            <div style = "float:right"></div
                 
                 <strong>  Description of Product  </strong>
                 <br />
-                <iframe name = "productsInfoiframe" width="300" height="300" src="getProductsInfo.php" frameborder="3"></iframe>
+                <iframe name = "productsInfoiframe" width="300" height="300" src="getProductsInfo.php" frameborder="0.5"></iframe>
 
             </div>
 

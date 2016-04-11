@@ -10,10 +10,14 @@ body{
     
     background-color: red;
     background: -webkit-linear-gradient(red, yellow); 
+    float:left;
+  
    
-
-#wrapper{
+}
+.wrapper{
     
-    float: right;
-    
+    float:left;
+    background-color: red;
+    background: -webkit-linear-gradient(red, yellow);
+      border-radius: 30px;
 }

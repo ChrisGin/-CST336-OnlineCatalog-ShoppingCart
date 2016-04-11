@@ -15,7 +15,7 @@ $dbConnection = getDatabaseConnection('shopping_cart');
             $statement->execute();
             $records = $statement->fetch();
             if(count($records) == 0)
-                $error = "no hay este producto";
+                $error = "Not a valid product";
             else {
                 $_SESSION['cart'][$id] = array("productName" => $records['productName'], "qty" => 1, "price" => $records['price']);
             }

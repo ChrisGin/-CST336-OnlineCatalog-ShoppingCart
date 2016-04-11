@@ -28,7 +28,7 @@ function getProductInfo() {
         <?php
         
         $productInfo = getProductInfo();
-        echo $productInfo['productDescription'];
+        echo "<strong>" . $productInfo['productDescription'] . "</strong>";
         
         
         ?>

@@ -43,8 +43,8 @@ function getProductList(){
     if(isset($_GET['searchForm'])){
 
         if(!empty($_GET['productType'])){
-            $sql .= " AND productTypeId = :productTypeId";
-            $namedParameters[":productTypeId"] = $_GET['productType'];
+            $sql .= " AND productTypeId = :productType_id";
+            $namedParameters[":productType_id"] = $_GET['productType'];
 
         }
         if(!empty($_GET['maxPrice'])){
@@ -68,7 +68,7 @@ function getProductList(){
     }
 
 
-
+    echo $sql;
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -97,7 +97,7 @@ function getProductList(){
 
                         $productTypes = getProductTypes();
                         foreach ($productTypes as $productType) {
-                            echo "<option value='".$productType['productTypeId']."'>" . $productType['productType'] . " </option>";
+                            echo "<option value='".$productType['productType_id']."'>" . $productType['productType'] . " </option>";
                         }
 
                     ?>

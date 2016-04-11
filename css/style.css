@@ -1,0 +1,17 @@
+body{
+    width: 860px;
+    margin: 0 auto;
+    background-image: url("../img/pik.jpg");
+    background-repeat: no-repeat;
+    background-size: 6000px 1500px;
+    
+}
+.table{
+    background-color: green;
+}
+
+#wrapper{
+    
+    float: right;
+    
+}

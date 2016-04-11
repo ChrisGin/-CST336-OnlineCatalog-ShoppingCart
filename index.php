@@ -132,7 +132,7 @@ function getProductList(){
               <input type = "reset" value = "Reset" name = "reset" class = "SRbutton">
         </form>
 
-        <div id = "wrapper">
+        <div class = "wrapper">
 
               <table class = "table" border=1>
 
@@ -140,11 +140,13 @@ function getProductList(){
                   <th> Product Name </th>
                   <th> Price </th>
                   <th> Calories </th>
+                  <th> Buy </th>
               </tr>
 
               <?php
 
                $productList = getProductList();
+               
                foreach($productList as $productItem) {
                    echo "<tr>";
                    echo "<td><a href='getProductsInfo.php?product_id=".$productItem['product_id']."' target= 'productsInfoiframe'> " . $productItem['productName'] . "</a></td>";
@@ -158,12 +160,14 @@ function getProductList(){
 
               </table>
 
-                  <iframe name = "productsInfoiframe" width="100" height="100" src="getProductsInfo.php" frameborder="1"></iframe>
+                  
             </div>
 
-                <div style = "float:left"></div>
+            <div style = "float:left"></div>
+            
+                <iframe name = "productsInfoiframe" width="200" height="200" src="getProductsInfo.php" frameborder="1"></iframe>
 
-             </div>
+            </div>
 
     </body>
 </html>

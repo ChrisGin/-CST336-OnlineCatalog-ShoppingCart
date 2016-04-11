@@ -8,8 +8,9 @@ body{
 }
 .table{
     
-    background-color: #A52A2A;
-}
+    background-color: red;
+    background: -webkit-linear-gradient(red, yellow); 
+   
 
 #wrapper{
     

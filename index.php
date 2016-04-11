@@ -68,7 +68,7 @@ function getProductList(){
     }
 
 
-    echo $sql;
+    //echo $sql;
     $statement = $dbConnection->prepare($sql);
     $statement -> execute($namedParameters);
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -163,9 +163,11 @@ function getProductList(){
                   
             </div>
 
-            <div style = "float:left"></div>
-            
-                <iframe name = "productsInfoiframe" width="200" height="200" src="getProductsInfo.php" frameborder="1"></iframe>
+            <div style = "float:right">
+                
+                <strong>  Description of Product  </strong>
+                <br />
+                <iframe name = "productsInfoiframe" width="300" height="300" src="getProductsInfo.php" frameborder="3"></iframe>
 
             </div>
 

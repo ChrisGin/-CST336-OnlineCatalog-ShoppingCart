@@ -156,7 +156,7 @@ function getProductList(){
                    echo "<td><a href='getProductsInfo.php?product_id=".$productItem['product_id']."' target= 'productsInfoiframe'> " . $productItem['productName'] . "</a></td>";
                    echo "<td>" . $productItem['price'] . "</td>";
                    echo "<td>" . $productItem['calories'] . "</td>";
-                   echo "<td><a href=" . "index.php?action=add&id=$productItem[product_id]>Add to Cart</a></td>";
+                   echo "<td><a href=" . "index.php?action=add&id=" . $productItem['product_id'] . ">Add to Cart</a></td>";
                    echo "</tr>";
                }
 

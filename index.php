@@ -171,7 +171,6 @@ function getProductList(){
                 <strong>  Description of Product  </strong>
                 <br />
                 <iframe name = "productsInfoiframe" width="300" height="300" src="getProductsInfo.php" frameborder="0.5"></iframe>
-
             </div>
 
     </body>

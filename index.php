@@ -15,7 +15,7 @@ $dbConnection = getDatabaseConnection('shopping_cart');
             $statement->execute();
             $records = $statement->fetch();
             if(count($records) == 0)
-                $error = "no hay este producto";
+                $error = "Not a valid product";
             else {
                 $_SESSION['cart'][$id] = array("productName" => $records['productName'], "qty" => 1, "price" => $records['price']);
             }
@@ -132,6 +132,10 @@ function getProductList(){
               <input type = "reset" value = "Reset" name = "reset" class = "SRbutton">
         </form>
 
+        <form action="cart.php">
+            <input type = "submit" value = "View Cart">
+        </form>
+
         <div class = "wrapper">
 
               <table>
@@ -146,7 +150,7 @@ function getProductList(){
               <?php
 
                $productList = getProductList();
-               
+
                foreach($productList as $productItem) {
                    echo "<tr>";
                    echo "<td><a href='getProductsInfo.php?product_id=".$productItem['product_id']."' target= 'productsInfoiframe'> " . $productItem['productName'] . "</a></td>";
@@ -163,7 +167,7 @@ function getProductList(){
             </div>
 
             <div style = "float:right"></div
-                
+
                 <strong>  Description of Product  </strong>
                 <br />
                 <iframe name = "productsInfoiframe" width="300" height="300" src="getProductsInfo.php" frameborder="0.5"></iframe>
